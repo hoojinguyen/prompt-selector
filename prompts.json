@@ -1,0 +1,333 @@
+[
+  {
+    "name": "11 prompts for BUG REPORT",
+    "prompts": [
+      "Describe the process of building a custom tool for bug reporting and analysis related to {topic} using {programming_language_or_framework}, including essential features, functionalities, and user interface design.",
+      "Explain how to develop a custom tool for automated bug data collection and analysis using {programming_language_or_framework}, covering techniques for data extraction, data cleaning, and data visualization.",
+      "Provide a step-by-step guide for creating a custom tool for bug report collaboration and feedback related to {topic} using {programming_language_or_framework}, covering techniques for team communication, feedback collection, and reporting.",
+      "Discuss the key considerations when designing a custom tool for bug report visualization and presentation related to {topic} using {programming_language_or_framework}, including support for data mapping, charting, and filtering.",
+      "Explain how to effectively summarize bug reports using {technique/tool}, including techniques for identifying key information, distinguishing relevant data, and synthesizing findings.",
+      "Describe the process of building a custom tool for automated bug report summarization and analysis using {programming_language_or_framework}, covering techniques for data extraction, natural language processing, and text summarization.",
+      "Provide a step-by-step guide for creating a custom tool for bug report analysis using {programming_language_or_framework}, covering techniques for data exploration, data cleaning, and data visualization.",
+      "Discuss the key considerations when designing a custom tool for bug report trend analysis and prediction using {programming_language_or_framework}, including support for data modeling, feature engineering, and statistical analysis.",
+      "Describe best practices for ensuring bug report accuracy and completeness in a custom tool for {topic} developed using {programming_language_or_framework}.",
+      "Explain the process of integrating bug report tracking and management tools into a custom solution for {topic}, focusing on incident escalation, resolution, and communication.",
+      "Provide a step-by-step guide for creating a custom tool for bug report collaboration and feedback using {programming_language_or_framework}, covering techniques for team communication, feedback collection, and reporting."
+    ]
+  },
+  {
+    "name": "10 prompts for CODING",
+    "prompts": [
+      "Generate a [programming language] function that [task to accomplish] and explain how it works.",
+      "Provide an overview of the differences between [two programming languages or frameworks] and recommend which one to use for [specific task or project].",
+      "Create an algorithm to [solve a specific problem] using [programming language or framework] and explain your thought process.",
+      "Explain the concept of [specific programming concept, such as recursion or inheritance] in [programming language or framework].",
+      "Provide a step-by-step guide to setting up a [specific tool or technology, such as a development environment or database].",
+      "Create a program that [performs a specific task] using [programming language or framework] and provide a detailed walkthrough of the code.",
+      "Explain the difference between [specific data types or structures] and when to use each one in [programming language or framework].",
+      "Provide tips and tricks for optimizing code performance in [programming language or framework].",
+      "Walk through the process of debugging a code error in [programming language or framework] and how to prevent it in the future.",
+      "Discuss the pros and cons of [specific programming paradigm, such as object-oriented or functional programming] in [programming language or framework] and when to use each one."
+    ]
+  },
+  {
+    "name": "10 prompts for CYPER SCURITY",
+    "prompts": [
+      "Explain the process of developing a custom tool for automated cybersecurity risk assessment and management using {programming_language_or_framework}, covering techniques for data extraction, data cleaning, and data visualization.",
+      "Provide a step-by-step guide for creating a custom tool for cybersecurity collaboration and feedback using {programming_language_or_framework}, covering techniques for team communication, feedback collection, and reporting.",
+      "Discuss the key considerations when designing a custom tool for cybersecurity visualization and presentation using {programming_language_or_framework}, including support for data mapping, charting, and filtering.",
+      "Describe best practices for ensuring cybersecurity report accuracy and completeness in a custom tool developed using {programming_language_or_framework}, including techniques for threat analysis, vulnerability assessment, and risk management.",
+      "Explain the process of integrating third-party cybersecurity tools and plugins into a custom solution for {topic}, focusing on interoperability and seamless workflows.",
+      "Provide a step-by-step guide for creating a custom tool for automated cybersecurity incident response using {programming_language_or_framework}, covering techniques fo r data extraction, data cleaning, and data visualization.",
+      "Discuss the key considerations when designing a custom tool for automated cybersecurity threat detection and response using {programming_language_or_framework}, including techniques for data preprocessing, machine learning, and anomaly detection.",
+      "Explain how to create a custom tool for analyzing cybersecurity log data using {technique/tool}, including techniques for log parsing, data cleansing, and pattern recognition.",
+      "Provide a step-by-step guide for creating a custom tool for cybersecurity risk modeling and simulation using {programming_language_or_framework}, covering techniques for data modeling, scenario analysis, and decision making.",
+      "Describe the process of building a custom tool for cybersecurity vulnerability scanning and management using {programming_language_or_framework}, including techniques for system identification, vulnerability assessment, and patch management."
+    ]
+  },
+  {
+    "name": "10 prompts for DATA ANALYSIS",
+    "prompts": [
+      "What are the best practices for preprocessing {topic} data using {programming_language_or_framework}?",
+      "How can I perform exploratory data analysis on {topic} data using {programming_language_or_framework}?",
+      "What are the most common statistical techniques to analyze {topic} data in {programming_language_or_framework}?",
+      "Provide a step-by-step guide for implementing a machine learning model for {specific_task} using {programming_language_or_framework}.",
+      "Explain how to optimize {topic} data analysis performance in {programming_language_or_framework} using best coding practices.",
+      "Discuss the pros and cons of different data visualization techniques for {topic} data analysis in {programming_language_or_framework}.",
+      "Describe the process of building a custom data analysis tool for {topic} using {programming_language_or_framework}, including the necessary features and functionalities.",
+      "Explain how to develop a user-friendly dashboard for visualizing and interacting with {topic} data analysis results using {programming_language_or_framework}.",
+      "Provide a step-by-step guide for creating a reusable data analysis pipeline for {topic} using {programming_language_or_framework}, covering data preprocessing, analysis, and visualization.",
+      "Discuss the key considerations when designing a scalable and modular data analysis tool for {topic} in {programming_language_or_framework}, including performance optimization and extensibility."
+    ]
+  },
+  {
+    "name": "10 prompts for DATA SCIENCE",
+    "prompts": [
+      "Explain the process of feature engineering and selection for {topic} data in a data science project using {programming_language_or_framework}.",
+      "Discuss the role of data visualization in understanding and interpreting {topic} data in a data science context.",
+      "What are the best practices for validating and evaluating data science models for {topic} analysis using {programming_language_or_framework}?",
+      "Provide a comparison of various machine learning algorithms for {topic} data analysis and their strengths and weaknesses.",
+      "How can I implement a recommendation system for {topic} using data science techniques in {programming_language_or_framework}?",
+      "Discuss the ethical considerations and potential biases in data science when working with {topic} data.",
+      "Describe the process of building a custom data science tool for {topic} using {programming_language_or_framework}, including essential features, functionalities, and user interface design.",
+      "Explain how to develop an interactive dashboard for exploring and visualizing {topic} data science results using {programming_language_or_framework}.",
+      "Provide a step-by-step guide for creating a reusable data science pipeline for {topic} using {programming_language_or_framework}, covering data preprocessing, modeling, evaluation, and visualization.",
+      "Discuss the key considerations when designing a scalable and modular data science tool for {topic} in {programming_language_or_framework}, including performance optimization, extensibility, and collaboration features."
+    ]
+  },
+  {
+    "name": "10 prompts for DEEP LEARNING",
+    "prompts": [
+      "Describe the process of building a deep learning model for {specific_task} using {programming_language_or_framework}.",
+      "How can I design and train a convolutional neural network (CNN) for image recognition tasks in {programming_language_or_framework}?1.",
+      "Describe the process of building a custom deep learning tool for {topic} using {programming_language_or_framework}, including essential features, functionalities, and user interface design.",
+      "Explain how to develop an interactive dashboard for monitoring and visualizing deep learning model performance on {topic} data using {programming_language_or_framework}.",
+      "Provide a step-by-step guide for creating a reusable deep learning pipeline for {topic} using {programming_language_or_framework}, covering data preprocessing, model architecture, training, evaluation, and visualization.",
+      "Discuss the key considerations when designing a scalable and modular deep learning tool for {topic} in {programming_language_or_framework}, including performance optimization, extensibility, and collaboration features.",
+      "Explain the process of integrating pre-trained deep learning models into a custom tool for {topic} analysis using {programming_language_or_framework}, focusing on transfer learning techniques.",
+      "Describe the best practices for ensuring the maintainability and reproducibility of deep learning tools for {topic} developed in {programming_language_or_framework}.",
+      "Discuss the importance of incorporating data versioning and model tracking into a deep learning tool for {topic} using {programming_language_or_framework}, and provide implementation strategies.",
+      "Discuss the role of transfer learning in deep learning and how it can be used to improve the performance of models for {topic} tasks."
+    ]
+  },
+  {
+    "name": "10 prompts for DESIGN",
+    "prompts": [
+      "Develop a system design tool for [TOPIC], focusing on {[Feature_1], [Feature_2], [Feature_2]}. Ensure the tool streamlines the design process, effectively addressing user needs and optimizing resource utilization.",
+      "Describe the process of building a custom system design tool for {topic} using {programming_language_or_framework}, including essential features, functionalities, and user interface design.",
+      "Design an innovative system design tool for [TOPIC], featuring {[feature_1], [Feature_2], [Feature_3]}. The tool must enable seamless system design, focusing on user requirements and optimizing overall effectiveness.",
+      "Explain how to develop an interactive dashboard for visualizing and analyzing system design architectures focused on {topic} using {programming_language_or_framework}.",
+      "Discuss the development of a simulation tool for modeling and testing system design scenarios for {topic} projects using {programming_language_or_framework}, with a focus on performance, scalability, and fault tolerance.",
+      "Discuss the development of a collaborative system design platform for {topic} using {programming_language_or_framework}, with a focus on real-time editing, versioning, and communication features.",
+      "Explain how to build a custom tool for automating the deployment and scaling of system design architectures related to {topic} using {programming_language_or_framework}, incorporating cloud-based infrastructure and containerization technologies.",
+      "Describe the process of creating a system design tool that automatically generates documentation for {topic} projects using {programming_language_or_framework}, including support for multiple output formats.",
+      "Describe the process of creating an AI-powered system design assistant for {topic} using {programming_language_or_framework}, including capabilities such as generating design suggestions and detecting potential bottlenecks.",
+      "Explain how to build a custom tool for evaluating and comparing different system design architectures related to {topic} using {programming_language_or_framework}, incorporating performance metrics and trade-off analysis."
+    ]
+  },
+  {
+    "name": "10 prompts for DEVOPS",
+    "prompts": [
+      "Describe the process of building a custom DevOps tool for {topic} using {programming_language_or_framework}, including essential features, functionalities, and user interface design.",
+      "Explain how to develop an interactive dashboard for monitoring and managing the performance of a DevOps pipeline focused on {topic} using {programming_language_or_framework}.",
+      "Provide a step-by-step guide for creating a reusable and modular DevOps pipeline for {topic} using {programming_language_or_framework}, covering integration, deployment, monitoring, and automation.",
+      "Discuss the key considerations when designing a scalable and flexible DevOps tool for {topic} in {programming_language_or_framework}, including performance optimization, extensibility, and collaboration features.",
+      "Describe best practices for ensuring security and compliance in a custom DevOps tool for {topic} developed using {programming_language_or_framework}.",
+      "Explain the process of integrating third-party DevOps tools and services into a custom solution for {topic}, focusing on interoperability and seamless workflows.",
+      "Discuss the importance of incorporating monitoring, logging, and alerting features into a custom DevOps tool for {topic} using {programming_language_or_framework}, and provide implementation strategies.",
+      "Describe the process of creating a self-service portal for managing infrastructure and resources in a DevOps environment focused on {topic} using {programming_language_or_framework}.",
+      "Explain how to build a tool for automating the configuration management of servers and applications in a DevOps workflow for {topic} using {programming_language_or_framework}.",
+      "Discuss the role of effective communication and collaboration features in a custom DevOps tool for {topic}, and provide guidance on how to implement them using {programming_language_or_framework}."
+    ]
+  },
+  {
+    "name": "10 prompts for ENGINEERING",
+    "prompts": [
+      "Generate a tool for [enter software engineering task], providing an intuitive user interface that simplifies the process and reduces the risk of errors.",
+      "Provide a step-by-step guide for creating a reusable and modular software engineering pipeline for {topic} using {programming_language_or_framework}, covering integration, deployment, monitoring, and automation.",
+      "Design a tool that streamlines [enter software engineering process], resulting in faster and more efficient development cycles.",
+      "Explain how to develop an interactive dashboard for monitoring and managing software development processes and workflows for {topic} using {programming_language_or_framework}.",
+      "Develop a tool that enhances collaboration between team members, facilitating communication and improving the overall development process.",
+      "Create a tool that incorporates machine learning algorithms to optimize [enter software engineering task], resulting in improved performance and accuracy.",
+      "Describe best practices for ensuring security and compliance in a custom software engineering tool for {topic} developed using {programming_language_or_framework}.",
+      "Discuss the ethical considerations and potential challenges engineers face when working on {engineering_discipline} projects, and how they can be addressed.",
+      "Develop a tool that provides detailed analytics on [enter software engineering task or process], empowering engineers to make informed decisions.",
+      "Explain the process of integrating third-party software engineering tools and services into a custom solution for {topic}, focusing on interoperability and seamless workflows."
+    ]
+  },
+  {
+    "name": "10 prompts for GITHUB",
+    "prompts": [
+      "Create a [tool/program] that searches for [specific keyword] in GitHub repositories using [specific technology] and [programming language].",
+      "Explain the process of integrating third-party services and APIs into a custom GitHub solution for {topic}, focusing on interoperability and seamless workflows.",
+      "Build a [tool/program] that helps users discover GitHub repositories based on [specific criteria] using [specific technology] and [programming language].",
+      "Describe the process of building a custom GitHub integration for {topic} using {programming_language_or_framework}, including essential features, functionalities, and user interface design.",
+      "Discuss how to design and implement a GitHub webhook for real-time notifications and updates related to {topic} using {programming_language_or_framework}.",
+      "Build a [tool/program] that helps users discover new GitHub repositories based on their [specific interest] using [specific technology] and [programming language].",
+      "Explain how to build a custom GitHub Pages theme or template for projects related to {topic}, incorporating responsive design and user-friendly navigation using {programming_language_or_framework}.",
+      "Develop a [tool/program] that finds GitHub repositories related to [specific industry/field] using [specific technology] and [programming language].",
+      "Describe best practices for ensuring security and compliance in a custom GitHub tool for {topic} developed using {programming_language_or_framework}.",
+      "Create a [tool/program] that searches for GitHub repositories with [specific size] using [specific technology] and [programming language]."
+    ]
+  },
+  {
+    "name": "10 prompts for INCIDENT REPORT",
+    "prompts": [
+      "Explain how to effectively summarize incident reports using {technique/tool}, including techniques for identifying key information, distinguishing relevant data, and synthesizing findings.",
+      "Describe the process of building a custom tool for automated incident report summarization and analysis using {programming_language_or_framework}, covering techniques for data extraction, natural language processing, and text summarization.",
+      "Provide a step-by-step guide for creating a custom tool for incident report analysis using {programming_language_or_framework}, covering techniques for data exploration, data cleaning, and data visualization.",
+      "Discuss the key considerations when designing a custom tool for incident report trend analysis and prediction using {programming_language_or_framework}, including support for data modeling, feature engineering, and statistical analysis.",
+      "Describe best practices for ensuring incident report accuracy and completeness in a custom tool for {topic} developed using {programming_language_or_framework}.",
+      "Explain the process of integrating incident report tracking and management tools into a custom solution for {topic}, focusing on incident escalation, resolution, and communication.",
+      "Provide a step-by-step guide for creating a custom tool for incident report collaboration and feedback using {programming_language_or_framework}, covering techniques for team communication, feedback collection, and reporting.",
+      "Discuss the key considerations when designing a custom tool for incident report visualization and presentation related to {topic} using {programming_language_or_framework}, including support for data mapping, charting, and filtering.",
+      "Explain how to perform root cause analysis on incident reports using {technique/tool}, including techniques for identifying contributing factors, assessing impact, and developing remediation plans.",
+      "Describe the process of creating a custom tool for incident report prioritization and risk assessment using {programming_language_or_framework}, covering techniques for data classification, decision making, and risk management."
+    ]
+  },
+  {
+    "name": "10 prompts for JAVASCRIPT",
+    "prompts": [
+      "Create a [adjective] [function] [tool/program] that [specific task] using [specific JavaScript library] and [specific technology]. Example filler words: efficient, data parsing, Chart.js, WebSockets.",
+      "Discuss the development of a custom JavaScript tool for testing and debugging web applications related to {topic} using {library_or_framework}, including techniques for automating tests and identifying bugs.",
+      "Discuss the development of a custom JavaScript tool for creating interactive data visualizations for {topic} using {library_or_framework}, including support for multiple data sources and dynamic updates.",
+      "Discuss the development of a custom JavaScript tool for testing and debugging web applications related to {topic} using {library_or_framework}, including techniques for automating tests and identifying bugs.",
+      "Describe the process of building a custom JavaScript tool for {topic} using {library_or_framework}, including essential features, functionalities, and user interface design.",
+      "Explain the process of integrating third-party services and APIs into a custom JavaScript solution for {topic}, focusing on interoperability and seamless workflows.",
+      "Create a [function] [tool/program] that [specific task] for [specific environment] using [specific JavaScript framework] and [specific technology]. Example filler words: cross-platform, database management, Next.js, MongoDB.",
+      "Create a [tool/program] that utilizes [specific JavaScript library] to [specific task]. Example filler words: jQuery, manipulate the DOM, lodash, handle arrays.",
+      "Develop a [tool/program] that integrates [specific JavaScript library] to [specific task] for [specific audience]. Example filler words: D3.js, data visualization, web designers.",
+      "Explain how to develop an interactive web-based dashboard for visualizing and analyzing data related to {topic} using {library_or_framework} in JavaScript."
+    ]
+  },
+  {
+    "name": "10 prompts for MACHINE LEARNING",
+    "prompts": [
+      "Describe the process of building a custom machine learning tool for {topic} using {programming_language_or_framework}, including essential features, functionalities, and user interface design.",
+      "Explain how to develop an interactive dashboard for monitoring and visualizing machine learning models and training data for {topic} using {programming_language_or_framework}.",
+      "Provide a step-by-step guide for creating a reusable and modular machine learning pipeline for {topic} using {programming_language_or_framework}, covering data preprocessing, model selection, training, and deployment.",
+      "Discuss the development of a custom machine learning tool for anomaly detection or outlier detection related to {topic} using {programming_language_or_framework}, including techniques for data preprocessing, model selection, and detection threshold determination.",
+      "Describe the process of creating a custom machine learning-based recommender system for {topic} using {programming_language_or_framework}, incorporating collaborative filtering, content-based filtering, and hybrid approaches.",
+      "Explain how to build a custom machine learning tool for natural language processing and text analysis related to {topic} using {programming_language_or_framework}, including techniques for feature extraction, sentiment analysis, and topic modeling.",
+      "Discuss the development of a custom machine learning tool for image recognition or object detection related to {topic} using {programming_language_or_framework}, including techniques for data preprocessing, model selection, and performance evaluation.",
+      "Describe the process of creating a custom machine learning-based chatbot or virtual assistant for {topic} using {programming_language_or_framework}, including natural language processing and dialog management capabilities.",
+      "Explain how to build a custom machine learning tool for time series forecasting related to {topic} using {programming_language_or_framework}, including techniques for data preprocessing, model selection, and evaluation metrics.",
+      "Describe the process of creating a custom machine learning-based fraud detection system for {topic} using {programming_language_or_framework}, incorporating anomaly detection, classification, and ensemble methods."
+    ]
+  },
+  {
+    "name": "10 prompts for MODEL SCHEMA",
+    "prompts": [
+      "Discuss the development of a custom tool for machine learning model interpretability and explainability related to {topic} using {programming_language_or_framework}, including support for feature importance analysis, decision trees, and model visualization.",
+      "Describe the process of creating a custom tool for model schema transformation and adaptation related to {topic} using {programming_language_or_framework}, covering techniques for model mapping, schema mapping, and data mapping.",
+      "Provide a step-by-step guide for creating a custom tool for model calibration and validation related to {topic} using {programming_language_or_framework}, covering techniques for parameter estimation, goodness-of-fit testing, and result interpretation.",
+      "Discuss the key considerations when designing a custom tool for model optimization and performance improvement related to {topic} using {programming_language_or_framework}, including support for parallel processing, memory management, and algorithm selection.",
+      "Build a custom tool for model schema deployment and integration related to {topic} using {programming_language_or_framework}, including support for model serving, REST APIs, and cloud deployment.",
+      "Describe best practices for ensuring model schema security and privacy in a custom tool for {topic} developed using {programming_language_or_framework}.",
+      "Develop a custom tool for model schema documentation and knowledge management related to {topic} using {programming_language_or_framework}, including support for model interpretation, data visualization, and training materials.",
+      "Describe the process of building a custom tool for modeling and simulation of {topic} using {programming_language_or_framework}, including essential features, functionalities, and user interface design.",
+      "Explain how to develop a custom tool for data modeling and schema design related to {topic}, including support for entity-relationship diagrams, UML diagrams, and database design.",
+      "Provide a step-by-step guide for creating a custom tool for model parameter optimization and sensitivity analysis related to {topic} using {programming_language_or_framework}, covering techniques for simulation setup, sensitivity analysis, and result analysis."
+    ]
+  },
+  {
+    "name": "10 prompts for PENETRATION TESTING",
+    "prompts": [
+      "Describe best practices for ensuring penetration test report accuracy and completeness in a custom tool developed using {programming_language_or_framework}, including techniques for vulnerability analysis, threat modeling, and risk assessment.",
+      "Explain the process of integrating third-party penetration testing tools and plugins into a custom solution for {topic}, focusing on interoperability and seamless workflows.",
+      "Provide a step-by-step guide for creating a custom tool for automated penetration testing report analysis using {programming_language_or_framework}, covering techniques for data extraction, data cleaning, and data visualization.",
+      "Explain how to effectively summarize penetration test reports using {technique/tool}, including techniques for identifying key information, distinguishing relevant data, and synthesizing findings.",
+      "Describe the process of building a custom tool for automated penetration test report summarization and analysis using {programming_language_or_framework}, covering techniques for data extraction, natural language processing, and text summarization.",
+      "Provide a step-by-step guide for creating a penetration test report analysis using {programming_language_or_framework}, covering techniques for data exploration, data cleaning, and data visualization.",
+      "Discuss the key considerations when designing a penetration test report trend analysis and prediction using {programming_language_or_framework}, including support for data modeling, feature engineering, and statistical analysis.",
+      "Describe best practices for ensuring penetration test report accuracy and completeness in a custom tool developed using {programming_language_or_framework}, including techniques for vulnerability analysis, threat modeling, and risk assessment.",
+      "Explain the process of integrating penetration testing report tracking and management tools into a custom solution for {topic}, focusing on incident escalation, resolution, and communication.",
+      "Provide a step-by-step guide for creating a custom tool for penetration test report collaboration and feedback using {programming_language_or_framework}, covering techniques for team communication, feedback collection, and reporting."
+    ]
+  },
+  {
+    "name": "10 prompts for QA AUTOMATION",
+    "prompts": [
+      "Describe the process of building a custom test automation tool for {topic} using {programming_language_or_framework}, including essential features, functionalities, and user interface design.",
+      "Create an [adjective] [tool/program] that streamlines [specific task] for [specific platform] using [specific QA automation framework] and [specific programming language]. Example filler words: user-friendly, mobile app testing, Appium, Java.",
+      "Explain how to develop a custom performance testing tool for web applications related to {topic} using {programming_language_or_framework}, including support for load testing, stress testing, and scalability testing.",
+      "Provide a step-by-step guide for creating a custom browser automation tool for {topic} using {programming_language_or_framework}, covering browser emulation, test script creation, and results analysis.",
+      "Discuss the key considerations when designing a scalable and flexible test automation tool for {topic} in {programming_language_or_framework}, including performance optimization, extensibility, and collaboration features.",
+      "Describe best practices for ensuring security and compliance in a custom QA automation tool for {topic} developed using {programming_language_or_framework}.",
+      "Explain the process of integrating third-party testing libraries and tools into a custom QA automation solution for {topic}, focusing on interoperability and seamless workflows.",
+      "Create a [tool/program] that leverages [specific QA automation framework] to automate [specific task] for [specific audience] using [specific programming language]. Example filler words: robust, JMeter, load testing, Java.",
+      "Discuss the development of a custom tool for test case management and reporting related to {topic} using {programming_language_or_framework}, including support for test case creation, execution, and results analysis.",
+      "Describe the process of creating a custom tool for mobile app testing and automation related to {topic} using {programming_language_or_framework}, including support for device emulation, functional testing, and performance testing."
+    ]
+  },
+  {
+    "name": "10 prompts for SPRINT RETROSPECTIVE REPORT",
+    "prompts": [
+      "Analyze the [sprint name] sprint and identify the team's key achievements, challenges, and opportunities for improvement. Use this information to create a comprehensive retrospective report that outlines [action items] to enhance future sprints.",
+      "Create a retrospective report for the [sprint name] sprint that highlights the team's progress towards achieving sprint goals and identifies [areas for improvement]. This report should include a detailed analysis of [key metrics] and [performance indicators].",
+      "Describe the process of creating a custom tool for automated report summarization and analysis using {programming_language_or_framework}, covering techniques for data extraction, natural language processing, and text summarization.",
+      "Provide a step-by-step guide for creating a custom tool for report summarization collaboration and feedback using {programming_language_or_framework}, covering techniques for team communication, feedback collection, and reporting.",
+      "Discuss the key considerations when designing a custom report visualization and presentation using {programming_language_or_framework}, including support for data mapping, charting, and filtering.",
+      "Conduct a thorough analysis of the [sprint name] sprint and create a retrospective report that provides an overview of [team performance], [highlights achievements], and identifies challenges. Use this report to develop a plan for enhancing future sprints.",
+      "Create a [sprint retrospective report tool type] that enables team members to provide anonymous feedback, which is then aggregated and presented in the retrospective report. This tool will help you to [desired outcome] and foster an environment of open communication and continuous improvement.",
+      "Explain how to efficiently read and summarize scientific research papers using {technique/tool}, including techniques for understanding complex concepts, identifying key contributions, and synthesizing results.",
+      "Describe the process of building a custom tool for business report summarization and analysis using {programming_language_or_framework}, covering techniques for data extraction, sentiment analysis, and trend analysis.",
+      "Provide a step-by-step guide for creating a custom tool for legal report summarization and analysis using {programming_language_or_framework}, covering techniques for data extraction, document clustering, and topic modeling."
+    ]
+  },
+  {
+    "name": "10 prompts for TECHNICAL SPECIFICATION",
+    "prompts": [
+      "Create a technical specification for a [insert product or system here] that should include [insert specific feature or requirement] and must be compatible with [insert related system or device here].",
+      "Discuss the development of a custom tool for managing technical requirements and specifications traceability related to {topic} using {programming_language_or_framework}, including support for requirement hierarchies, traceability matrices, and impact analysis.",
+      "Describe the process of creating a custom tool for technical specifications validation and testing related to {topic} using {programming_language_or_framework}, covering techniques for automated testing, regression testing, and test result analysis.",
+      "Provide a step-by-step guide for creating a custom tool for technical specifications compliance and certification related to {topic} using {programming_language_or_framework}, covering techniques for regulatory compliance, certification criteria, and quality assurance.",
+      "Discuss the key considerations when designing a custom tool for technical specifications translation and localization related to {topic} using {programming_language_or_framework}, including support for multiple languages, formats, and cultural norms.",
+      "Explain how to build a custom tool for technical specifications visualization and analysis related to {topic} using {programming_language_or_framework}, including support for network diagrams, flowcharts, and data modeling.",
+      "Create a technical specification for a [insert website or web application] that should include support for [insert specific browser or platform], and must be designed to handle [insert specific amount of traffic or user load].",
+      "Describe the process of building a custom tool for creating and managing technical specifications related to {topic} using {programming_language_or_framework}, including essential features, functionalities, and user interface design.",
+      "Explain how to develop a custom tool for version control and change tracking of technical specifications related to {topic}, including support for document comparison, commenting, and approval workflows.",
+      "Provide a step-by-step guide for creating a custom tool for automated technical documentation generation related to {topic} using {programming_language_or_framework}, covering techniques for source code parsing, markup generation, and output customization."
+    ]
+  },
+  {
+    "name": "10 prompts for TECHNICAL WRITING",
+    "prompts": [
+      "Discuss the development of a custom tool for creating and managing software documentation related to {topic} using {programming_language_or_framework}, including support for API documentation, code samples, and versioning.",
+      "Describe the process of creating a custom tool for creating instructional videos or tutorials related to {topic} using {programming_language_or_framework}, including support for screen recording, editing, and publishing workflows.",
+      "Provide a step-by-step guide for creating a custom tool for semantic analysis and indexing of technical documentation related to {topic} using {programming_language_or_framework}, covering techniques for keyword extraction, content categorization, and search functionality.",
+      "Discuss the key considerations when designing a custom tool for technical translation and localization of documentation related to {topic} using {programming_language_or_framework}, including support for multiple languages, translation workflows, and cultural adaptation.",
+      "Explain how to build a custom tool for generating interactive help documentation or chatbots for software applications related to {topic} using {programming_language_or_framework}, incorporating natural language processing and machine learning capabilities.",
+      "Describe the process of creating a custom tool for generating technical diagrams or visualizations related to {topic} using {programming_language_or_framework}, including support for vector graphics, flowcharts, and mind maps.",
+      "Discuss the development of a custom tool for generating technical eBooks or whitepapers related to {topic} using {programming_language_or_framework}, including support for styling, formatting, and conversion to different file formats.",
+      "Explain how to build a custom tool for generating technical documentation for APIs or web services related to {topic} using {programming_language_or_framework}, including support for API reference, authentication, and error handling.",
+      "Provide a step-by-step guide for creating a custom tool for automating technical documentation quality assurance and review related to {topic} using {programming_language_or_framework}, covering techniques for consistency checking, spelling and grammar verification, and style compliance.",
+      "Discuss the key considerations when designing a custom tool for tracking and reporting technical documentation usage and engagement related to {topic} using {programming_language_or_framework}, including support for analytics, feedback collection, and user behavior analysis."
+    ]
+  },
+  {
+    "name": "10 prompts for VBA",
+    "prompts": [
+      "Describe the process of building a custom VBA tool for {topic} using {programming_language_or_framework}, including essential features, functionalities, and user interface design.",
+      "Explain how to develop a custom tool for data analysis and reporting using VBA related to {topic}, including support for data processing, visualization, and automation.",
+      "Provide a step-by-step guide for creating a custom tool for automating repetitive tasks in Microsoft Excel related to {topic} using VBA, covering techniques for macro recording, code editing, and deployment.",
+      "Discuss the development of a custom VBA tool for automating data entry and processing tasks related to {topic}, including support for form creation, data validation, and error handling.",
+      "Describe the process of creating a custom tool for scraping data from web pages or APIs related to {topic} using VBA, covering techniques for HTTP requests, JSON parsing, and web scraping.",
+      "Provide a step-by-step guide for creating a custom tool for managing email communication related to {topic} using VBA, covering techniques for email filtering, parsing, and sending automated responses.",
+      "Discuss the key considerations when designing a custom VBA tool for financial modeling and analysis related to {topic}, including support for statistical functions, simulation techniques, and financial reporting.",
+      "Explain how to build a custom VBA tool for generating custom reports and dashboards related to {topic}, including support for data visualization, charting, and filtering.",
+      "Describe the process of creating a custom tool for integrating VBA with other programming languages or tools related to {topic}, covering techniques for DLL calls, COM interop, and VBA API.",
+      "Discuss the development of a custom VBA tool for automating database management and reporting related to {topic}, including support for SQL queries, data normalization, and data validation."
+    ]
+  },
+  {
+    "name": "10 prompts for WEB DEVELOPMENT",
+    "prompts": [
+      "Discuss the development of a custom tool for web content management related to {topic} using {programming_language_or_framework}, including support for content creation, editing, and publishing workflows.",
+      "Describe the process of creating a custom tool for web performance monitoring and optimization related to {topic} using {programming_language_or_framework}, covering techniques for page speed analysis, resource loading, and caching.",
+      "Provide a step-by-step guide for creating a custom tool for web analytics and reporting related to {topic} using {programming_language_or_framework}, covering techniques for data collection, segmentation, and visualization.",
+      "Discuss the key considerations when designing a custom tool for web security and vulnerability scanning related to {topic} using {programming_language_or_framework}, including support for authentication, auth",
+      "Design a [specific tool] that integrates [specific feature] into [specific software] for [specific audience] to enhance user interaction and experience.",
+      "Develop a [specific tool] that improves [specific process] for [specific audience] by using [specific technology] to enhance data visualization and analysis.",
+      "Create a [specific tool] that simplifies [specific process] for [specific audience] and includes [specific feature] to improve accessibility and usability using [specific technology].",
+      "Build a custom tool for generating dynamic forms and surveys related to {topic} using {programming_language_or_framework}, including support for validation, submission, and data analysis.",
+      "Provide a step-by-step guide for creating a custom tool for web-based project management and collaboration related to {topic} using {programming_language_or_framework}, covering techniques for task tracking, file sharing, and team communication.",
+      "Design a custom tool for web-based chat and messaging related to {topic} using {programming_language_or_framework}, including support for real-time communication, user authentication, and data privacy."
+    ]
+  },
+  {
+    "name": "10 prompts for XML",
+    "prompts": [
+      "Describe the process of building a custom tool for XML schema validation and transformation related to {topic} using {programming_language_or_framework}, including essential features, functionalities, and user interface design.",
+      "Explain how to develop a custom tool for XML parsing and data extraction related to {topic}, including support for XPath and XQuery queries, XML namespaces, and data validation.",
+      "Provide a step-by-step guide for creating a custom tool for XML-based data integration and transformation related to {topic} using {programming_language_or_framework}, covering techniques for XML mapping, data mapping, and schema mapping.",
+      "Discuss the key considerations when designing a scalable and flexible XML tool for {topic}, including performance optimization, data exchange formats, and interoperability features.",
+      "Describe best practices for ensuring XML security and compliance in a custom XML tool for {topic} developed using {programming_language_or_framework}.",
+      "Explain the process of integrating third-party XML libraries and tools into a custom solution for {topic}, focusing on interoperability and seamless workflows.",
+      "Build an XML [specific tool] that incorporates [specific feature] to improve [specific process] for [specific audience] and includes [specific technology] to enhance security and reliability. Example filler words: XML digital signatures, government agencies, XACML, encryption algorithms.",
+      "Discuss the development of a custom tool for generating XML-based reports and dashboards related to {topic} using {programming_language_or_framework}, including support for data visualization, charting, and filtering.",
+      "Describe the process of creating a custom tool for XML-based web services and APIs related to {topic} using {programming_language_or_framework}, covering techniques for SOAP, REST, and XML-RPC protocols.",
+      "Develop an XML [specific tool] that enhances [specific feature] in [specific software] for [specific audience] by using [specific technology] to improve data processing and retrieval. Example filler words: XML database tool, database administrators, XQuery optimization, XUpdate."
+    ]
+  }
+]
