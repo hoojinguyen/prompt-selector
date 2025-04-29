@@ -44,13 +44,23 @@ const colors = {
   yellow: '\x1b[33m',
   red: '\x1b[31m',
   magenta: '\x1b[35m',
+  white: '\x1b[37m',
   // Background colors
   bgBlack: '\x1b[40m',
   bgBlue: '\x1b[44m',
+  bgCyan: '\x1b[46m',
+  bgMagenta: '\x1b[45m',
   // Special styles
   bold: '\x1b[1m',
   underline: '\x1b[4m',
-  reversed: '\x1b[7m'
+  reversed: '\x1b[7m',
+  // Gradient effect
+  gradient: (text) => {
+    const gradientColors = [colors.cyan, colors.blue, colors.magenta];
+    return text.split('').map((char, i) => 
+      gradientColors[i % gradientColors.length] + char
+    ).join('');
+  }
 };
 
 // Clear screen and move cursor to top
@@ -69,23 +79,38 @@ function createBox(width) {
     vertical: '║',
     innerTop: `┌${innerHorizontal}┐`,
     innerBottom: `└${innerHorizontal}┘`,
-    innerVertical: '│'
+    innerVertical: '│',
+    // Add consistent corner characters
+    topLeft: '╔',
+    topRight: '╗',
+    bottomLeft: '╚',
+    bottomRight: '╝',
+    middleLeft: '╠',
+    middleRight: '╣'
   };
 }
 
 // Display categories with modern UI
 function displayCategories() {
   clearScreen();
-  const box = createBox(60);
+  const width = 70;
+  const box = createBox(width);
+  const contentWidth = width - 2; // Account for left and right borders
   
   // Header with gradient effect
-  console.log(`${colors.cyan}${colors.bgBlack}${box.top}${colors.reset}`);
-  console.log(`${colors.cyan}${box.vertical}${colors.bright}${colors.yellow}${colors.bold}               PROMPT SELECTOR               ${colors.reset}${colors.cyan}${box.vertical}${colors.reset}`);
+  console.log(`${colors.cyan}${box.top}${colors.reset}`); // Remove bgBlack for consistency
+  const title = '✨ PROMPT SELECTOR ✨';
+  const gradientTitle = colors.gradient(title);
+  const titlePadding = ' '.repeat(Math.floor((contentWidth - title.length) / 2));
+  const rightPadding = ' '.repeat(contentWidth - title.length - titlePadding.length);
+  console.log(`${colors.cyan}${box.vertical}${titlePadding}${gradientTitle}${rightPadding}${colors.cyan}${box.vertical}${colors.reset}`);
   console.log(`${colors.cyan}${box.middle}${colors.reset}`);
   
-  // Category selection header
-  console.log(`${colors.cyan}${box.vertical}${colors.green}${colors.bold} Select a category:${colors.reset}${' '.repeat(40)}${colors.cyan}${box.vertical}${colors.reset}`);
-  console.log(`${colors.cyan}${box.vertical}${' '.repeat(58)}${box.vertical}${colors.reset}`);
+  // Category selection header with improved styling
+  const categoryHeaderText = ' 📚 Select a category:';
+  const categoryHeaderPadding = ' '.repeat(contentWidth - categoryHeaderText.length);
+  console.log(`${colors.cyan}${box.vertical}${colors.bright}${colors.white}${colors.bold}${categoryHeaderText}${colors.reset}${categoryHeaderPadding}${colors.cyan}${box.vertical}${colors.reset}`);
+  console.log(`${colors.cyan}${box.vertical}${' '.repeat(contentWidth)}${box.vertical}${colors.reset}`);
   
   // Display categories with hover effect
   promptsData.forEach((category, index) => {
@@ -94,19 +119,33 @@ function displayCategories() {
     const categoryStyle = isSelected ? `${colors.bright}${colors.yellow}${colors.bold}` : colors.reset;
     const paddedName = `${prefix}${categoryStyle}${category.name}`;
     
-    console.log(`${colors.cyan}${box.vertical}  ${paddedName}${colors.reset}${' '.repeat(Math.max(0, 56 - paddedName.length))}${colors.cyan}${box.vertical}${colors.reset}`);
+    // Calculate visible length without ANSI codes
+    const visibleLength = (isSelected ? '▶ ' : '  ') + category.name;
+    const rightPadding = ' '.repeat(Math.max(0, contentWidth - visibleLength.length - 2)); // -2 for the initial spacing
+    
+    console.log(`${colors.cyan}${box.vertical}  ${paddedName}${colors.reset}${rightPadding}${colors.cyan}${box.vertical}${colors.reset}`);
     
     // Add spacing between categories
     if (index < promptsData.length - 1) {
-      console.log(`${colors.cyan}${box.vertical}${' '.repeat(58)}${box.vertical}${colors.reset}`);
+      console.log(`${colors.cyan}${box.vertical}${' '.repeat(contentWidth)}${box.vertical}${colors.reset}`);
     }
   });
   
   // Footer with navigation hints
   console.log(`${colors.cyan}${box.middle}${colors.reset}`);
-  console.log(`${colors.cyan}${box.vertical}${colors.dim} Navigation: ${colors.bright}↑↓${colors.dim} | Select: ${colors.bright}Enter${colors.reset}${' '.repeat(25)}${colors.cyan}${box.vertical}${colors.reset}`);
-  console.log(`${colors.cyan}${box.vertical}${colors.dim} Exit: ${colors.bright}q${colors.dim} or ${colors.bright}Ctrl+C${colors.reset}${' '.repeat(39)}${colors.cyan}${box.vertical}${colors.reset}`);
-  console.log(`${colors.cyan}${colors.bgBlack}${box.bottom}${colors.reset}`);
+  
+  // Calculate padding with ANSI color code length compensation
+  const navText = `${colors.dim} Navigation: ${colors.bright}↑↓${colors.dim} | Select: ${colors.bright}Enter${colors.reset}`;
+  const navVisibleLength = " Navigation: ↑↓ | Select: Enter".length;
+  const navPadding = ' '.repeat(contentWidth - navVisibleLength);
+  console.log(`${colors.cyan}${box.vertical}${navText}${navPadding}${colors.cyan}${box.vertical}${colors.reset}`);
+  
+  const exitText = `${colors.dim} Exit: ${colors.bright}q${colors.dim} or ${colors.bright}Ctrl+C${colors.reset}`;
+  const exitVisibleLength = " Exit: q or Ctrl+C".length;
+  const exitPadding = ' '.repeat(contentWidth - exitVisibleLength);
+  console.log(`${colors.cyan}${box.vertical}${exitText}${exitPadding}${colors.cyan}${box.vertical}${colors.reset}`);
+  
+  console.log(`${colors.cyan}${box.bottom}${colors.reset}`); // Use box.bottom without bgBlack for consistency
 }
 
 // Word wrap function
@@ -130,48 +169,68 @@ function wordWrap(text, maxLength) {
 // Display prompts for the selected category with modern UI
 function displayPrompts() {
   clearScreen();
-  const box = createBox(90);
+  const width = 100;
+  const box = createBox(width);
+  const contentWidth = width - 2; // Account for left and right borders
+  const cardWidth = contentWidth - 6; // Account for spacing and card borders
   
-  // Header with category name
-  console.log(`${colors.cyan}${colors.bgBlack}${box.top}${colors.reset}`);
-  console.log(`${colors.cyan}${box.vertical}${colors.bright}${colors.yellow}${colors.bold} ${currentCategory.name}${' '.repeat(Math.max(0, 87 - currentCategory.name.length))}${colors.reset}${colors.cyan}${box.vertical}${colors.reset}`);
+  // Header with gradient effect
+  console.log(`${colors.cyan}${box.top}${colors.reset}`);
+  const categoryTitle = `🔍 ${currentCategory.name}`;
+  const gradientCategoryTitle = colors.gradient(categoryTitle);
+  const titleRightPadding = ' '.repeat(Math.max(0, contentWidth - categoryTitle.length - 1)); // -1 for the initial space
+  console.log(`${colors.cyan}${box.vertical}${colors.bright}${colors.bold} ${gradientCategoryTitle}${colors.reset}${titleRightPadding}${colors.cyan}${box.vertical}${colors.reset}`);
   console.log(`${colors.cyan}${box.middle}${colors.reset}`);
   
-  // Display prompts with modern styling
+  // Display prompts with modern card-based styling
   currentCategory.prompts.forEach((prompt, index) => {
     const isSelected = index === selectedPromptIndex;
     const prefix = isSelected ? `${colors.bright}${colors.yellow}${colors.bold}▶ ` : '  ';
     const promptColor = isSelected ? `${colors.bright}${colors.green}${colors.bold}` : colors.reset;
     
-    // Create an inner box for each prompt
-    if (isSelected) {
-      console.log(`${colors.cyan}${box.vertical}  ${colors.blue}${box.innerTop}${' '.repeat(Math.max(0, 84 - prompt.length))}${colors.cyan}${box.vertical}${colors.reset}`);
-    }
+    // Create a modern card-like box for each prompt
+    const cardBorder = isSelected ? colors.magenta : colors.blue;
+    const cardBg = isSelected ? colors.bgMagenta : '';
     
-    // Word wrap the prompt text
-    const wrappedLines = wordWrap(prompt, 80);
+    // Top border of the card
+    console.log(`${colors.cyan}${box.vertical}  ${cardBorder}╭${'─'.repeat(cardWidth)}╮${colors.cyan}${box.vertical}${colors.reset}`);
+    
+    // Word wrap the prompt text with improved spacing
+    const wrappedLines = wordWrap(prompt, cardWidth - 7); // Account for prefix and padding
     
     wrappedLines.forEach((line, lineIndex) => {
-      const linePrefix = lineIndex === 0 ? prefix : '  ';
-      const padding = ' '.repeat(Math.max(0, 87 - line.length - linePrefix.length));
-      console.log(`${colors.cyan}${box.vertical}${colors.reset} ${linePrefix}${promptColor}${line}${colors.reset}${padding}${colors.cyan}${box.vertical}${colors.reset}`);
+      const linePrefix = lineIndex === 0 ? `${prefix}` : '   ';
+      const linePadding = ' '.repeat(Math.max(0, cardWidth - line.length - linePrefix.length));
+      console.log(`${colors.cyan}${box.vertical} ${cardBorder}│${cardBg}${colors.reset} ${linePrefix}${promptColor}${line}${colors.reset}${linePadding}${cardBorder}│${colors.cyan}${box.vertical}${colors.reset}`);
     });
     
-    if (isSelected) {
-      console.log(`${colors.cyan}${box.vertical}  ${colors.blue}${box.innerBottom}${' '.repeat(Math.max(0, 84 - prompt.length))}${colors.cyan}${box.vertical}${colors.reset}`);
-    }
+    // Bottom border of the card with prompt number
+    const promptNumber = `#${index + 1}/${currentCategory.prompts.length}`;
+    console.log(`${colors.cyan}${box.vertical}  ${cardBorder}╰${'─'.repeat(cardWidth - promptNumber.length - 1)}${colors.dim}${promptNumber}${cardBorder}╯${colors.cyan}${box.vertical}${colors.reset}`);
     
-    // Add spacing between prompts
+    // Add spacing between cards
     if (index < currentCategory.prompts.length - 1) {
-      console.log(`${colors.cyan}${box.vertical}${' '.repeat(88)}${box.vertical}${colors.reset}`);
+      console.log(`${colors.cyan}${box.vertical}${' '.repeat(contentWidth)}${box.vertical}${colors.reset}`);
     }
   });
   
   // Footer with navigation hints
   console.log(`${colors.cyan}${box.middle}${colors.reset}`);
-  console.log(`${colors.cyan}${box.vertical}${colors.dim} Navigation: ${colors.bright}↑↓${colors.dim} | Copy: ${colors.bright}c${colors.dim} | Back: ${colors.bright}←${colors.reset}${' '.repeat(45)}${colors.cyan}${box.vertical}${colors.reset}`);
-  console.log(`${colors.cyan}${box.vertical}${colors.dim} Exit: ${colors.bright}q${colors.dim} or ${colors.bright}Ctrl+C${colors.reset}${' '.repeat(69)}${colors.cyan}${box.vertical}${colors.reset}`);
-  console.log(`${colors.cyan}${colors.bgBlack}${box.bottom}${colors.reset}`);
+  
+  // Navigation line
+  const navText = `${colors.dim} Navigation: ${colors.bright}↑↓${colors.dim} | Copy: ${colors.bright}c${colors.dim} | Back: ${colors.bright}←${colors.reset}`;
+  const navVisibleLength = " Navigation: ↑↓ | Copy: c | Back: ←".length;
+  const navPadding = ' '.repeat(contentWidth - navVisibleLength);
+  console.log(`${colors.cyan}${box.vertical}${navText}${navPadding}${colors.cyan}${box.vertical}${colors.reset}`);
+  
+  // Exit line
+  const exitText = `${colors.dim} Exit: ${colors.bright}q${colors.dim} or ${colors.bright}Ctrl+C${colors.reset}`;
+  const exitVisibleLength = " Exit: q or Ctrl+C".length;
+  const exitPadding = ' '.repeat(contentWidth - exitVisibleLength);
+  console.log(`${colors.cyan}${box.vertical}${exitText}${exitPadding}${colors.cyan}${box.vertical}${colors.reset}`);
+  
+  // Bottom border
+  console.log(`${colors.cyan}${box.bottom}${colors.reset}`);
 }
 
 // Copy text to clipboard
@@ -187,14 +246,24 @@ function copyToClipboard(text) {
   
   exec(command, (error) => {
     if (error) {
-      const box = createBox(50);
+      const width = 50;
+      const box = createBox(width);
+      const contentWidth = width - 2;
       console.log(`${colors.cyan}${box.top}${colors.reset}`);
-      console.log(`${colors.cyan}${box.vertical}${colors.red} ✗ Failed to copy: ${error.message}${' '.repeat(Math.max(0, 47 - error.message.length - 16))}${colors.reset}${colors.cyan}${box.vertical}${colors.reset}`);
+      const errorMsg = `${colors.red} ✗ Failed to copy: ${error.message}${colors.reset}`;
+      const errorVisibleLength = ` ✗ Failed to copy: ${error.message}`.length;
+      const errorPadding = ' '.repeat(Math.max(0, contentWidth - errorVisibleLength));
+      console.log(`${colors.cyan}${box.vertical}${errorMsg}${errorPadding}${colors.cyan}${box.vertical}${colors.reset}`);
       console.log(`${colors.cyan}${box.bottom}${colors.reset}`);
     } else {
-      const box = createBox(50);
+      const width = 50;
+      const box = createBox(width);
+      const contentWidth = width - 2;
       console.log(`${colors.cyan}${box.top}${colors.reset}`);
-      console.log(`${colors.cyan}${box.vertical}${colors.green} ✓ Prompt copied to clipboard!${' '.repeat(25)}${colors.reset}${colors.cyan}${box.vertical}${colors.reset}`);
+      const successMsg = `${colors.green} ✓ Prompt copied to clipboard!${colors.reset}`;
+      const successVisibleLength = ` ✓ Prompt copied to clipboard!`.length;
+      const successPadding = ' '.repeat(Math.max(0, contentWidth - successVisibleLength));
+      console.log(`${colors.cyan}${box.vertical}${successMsg}${successPadding}${colors.cyan}${box.vertical}${colors.reset}`);
       console.log(`${colors.cyan}${box.bottom}${colors.reset}`);
     }
     // Wait a moment before redrawing the screen
@@ -246,8 +315,10 @@ process.stdin.on('keypress', (str, key) => {
   }
 });
 
+// Clear the console before starting
+clearScreen();
+
 // Start the app
 displayCategories();
 
-// Welcome message
-console.log('Loading prompt selector...');
+// Welcome message is not needed as we're clearing the screen

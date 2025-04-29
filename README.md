@@ -1,30 +1,32 @@
-# Prompt Selector Tool
+# Prompt Selector
 
-A terminal-based tool for managing and selecting prompt templates. This tool allows you to organize prompts by category, browse them through an interactive menu, and copy selected prompts to your clipboard for use with any AI chat service.
+A modern, interactive command-line tool for browsing, selecting, and copying AI prompts organized by categories. Perfect for quickly accessing your favorite prompts for AI tools like ChatGPT, Claude, or other LLM-based assistants.
 
 ## Features
 
-- Browse prompts organized by categories
-- Select prompts from an interactive menu
-- Automatically copy selected prompts to clipboard
-- Add new categories and prompts
-- Color-coded interface for better readability
-- Cross-platform support (macOS and Linux)
+- 🗂️ Browse prompts organized by categories
+- 🔍 Select prompts from an interactive menu
+- 📋 Automatically copy selected prompts to clipboard
+- 🎨 Beautiful color-coded terminal interface with gradient effects
+- 🌐 Cross-platform support (macOS, Windows, and Linux)
+- ✨ Modern card-based UI for better readability
+- 🔄 Easy to extend with your own prompts
 
 ## Requirements
 
-- Bash shell
-- Clipboard utility:
+- Node.js (v12 or higher)
+- Clipboard utilities (automatically used by the tool):
   - macOS: `pbcopy` (built-in)
-  - Linux: `xclip` or `xsel` (must be installed)
+  - Windows: `clip` (built-in)
+  - Linux: `xclip` (may need to be installed)
 
 ## Installation
 
 1. Clone or download this repository
-2. Make the script executable:
+2. Make the script executable (Unix/Linux/macOS):
 
 ```bash
-chmod +x prompt-selector.sh
+chmod +x prompt-selector.js
 ```
 
 ## Usage
@@ -32,56 +34,100 @@ chmod +x prompt-selector.sh
 Run the script from the terminal:
 
 ```bash
-./prompt-selector.sh
+./prompt-selector.js
 ```
 
-### Main Menu
+Alternatively, you can run it with Node.js directly:
 
-The main menu offers four options:
-
-1. **Browse prompts by category** - Navigate through categories and select a prompt
-2. **Add new prompt** - Create a new prompt and assign it to a category
-3. **Add new category** - Create a new category for organizing prompts
-4. **Exit** - Close the application
-
-### Adding Prompts
-
-When adding a new prompt:
-
-1. Select a category
-2. Enter a title for your prompt
-3. Enter the prompt content
-4. Type `END` on a new line when finished
-
-### Prompt Format
-
-Prompts are stored as text files with the following format:
-
-```
-# Prompt Title
-Actual prompt content goes here...
-Can span multiple lines...
+```bash
+node prompt-selector.js
 ```
 
-The first line starting with `#` is treated as the title and will not be copied to the clipboard when selecting the prompt.
+### Navigating the Interface
+
+1. **Category Selection**:
+   - Use the ↑/↓ arrow keys to navigate between categories
+   - Press Enter to select a category and view its prompts
+
+2. **Prompt Selection**:
+   - Use the ↑/↓ arrow keys to navigate between prompts
+   - Press `c` to copy the selected prompt to your clipboard
+   - Press Backspace (←) to return to the category selection
+
+3. **Exiting the Tool**:
+   - Press `q` or Ctrl+C at any time to exit
+
+### Example Workflow
+
+1. Launch the tool: `./prompt-selector.js`
+2. Navigate to a category (e.g., "10 prompts for CODING")
+3. Select a prompt that fits your needs
+4. Press `c` to copy it to your clipboard
+5. Paste the prompt into your AI assistant of choice
+
+## Prompt Structure
+
+The `prompts.json` file contains all available prompts organized by categories. Each category has a name and an array of prompts:
+
+```json
+[
+  {
+    "name": "Category Name",
+    "prompts": [
+      "Prompt 1 text",
+      "Prompt 2 text",
+      "Prompt 3 text"
+    ]
+  },
+  {
+    "name": "Another Category",
+    "prompts": [
+      "Another prompt text"
+    ]
+  }
+]
+```
+
+### Template Placeholders
+
+Many prompts in the collection use template placeholders that you can replace with specific values when using the prompt with an AI assistant. These placeholders are enclosed in curly braces, for example:
+
+- `{topic}` - Replace with your specific subject matter
+- `{programming_language_or_framework}` - Replace with your preferred language or framework
+- `{technique/tool}` - Replace with a specific technique or tool name
+
+When you copy a prompt containing these placeholders, you should replace them with your specific values before submitting to an AI assistant.
+
+## Customization
+
+### Adding Your Own Prompts
+
+To add your own prompts, edit the `prompts.json` file:
+
+1. To add a new prompt to an existing category:
+   - Find the category in the JSON file
+   - Add a new string to the "prompts" array
+
+2. To add a new category:
+   - Add a new object to the root array with "name" and "prompts" properties
+   - Include your prompts as strings in the "prompts" array
+
+### Customizing the UI
+
+You can customize the UI by modifying the color codes and styles in the `prompt-selector.js` file:
+
+- Look for the `colors` object to change the color scheme
+- Modify the `createBox` function to change the border style
+- Adjust the width variables to change the size of the UI elements
 
 ## Directory Structure
 
 ```
 prompt-selector/
-├── prompt-selector.sh     # Main script
-├── categories.txt         # List of categories
-└── prompts/               # Directory containing prompt files
-    ├── Category1/         # Subdirectory for each category
-    │   ├── prompt1.txt    # Prompt files
-    │   └── prompt2.txt
-    └── Category2/
-        └── prompt3.txt
+├── prompt-selector.js  # Main script with UI and functionality
+├── prompts.json        # JSON file containing all prompts and categories
+└── README.md           # Documentation
 ```
-
-## Customization
-
-You can customize the tool by directly editing the prompt files in the `prompts/` directory. Each prompt is stored as a text file within its category subdirectory.
 
 ## License
 
