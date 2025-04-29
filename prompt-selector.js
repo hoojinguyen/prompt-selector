@@ -21,6 +21,11 @@ let selectedCategoryIndex = 0;
 let selectedPromptIndex = 0;
 let currentCategory = null;
 
+// Scrolling state
+let categoryScrollOffset = 0;
+let promptScrollOffset = 0;
+const visibleItems = 10; // Number of items visible at once
+
 // Setup terminal
 const rl = readline.createInterface({
   input: process.stdin,
@@ -98,7 +103,7 @@ function displayCategories() {
   const contentWidth = width - 2; // Account for left and right borders
   
   // Header with gradient effect
-  console.log(`${colors.cyan}${box.top}${colors.reset}`); // Remove bgBlack for consistency
+  console.log(`${colors.cyan}${box.top}${colors.reset}`);
   const title = '✨ PROMPT SELECTOR ✨';
   const gradientTitle = colors.gradient(title);
   const titlePadding = ' '.repeat(Math.floor((contentWidth - title.length) / 2));
@@ -112,9 +117,30 @@ function displayCategories() {
   console.log(`${colors.cyan}${box.vertical}${colors.bright}${colors.white}${colors.bold}${categoryHeaderText}${colors.reset}${categoryHeaderPadding}${colors.cyan}${box.vertical}${colors.reset}`);
   console.log(`${colors.cyan}${box.vertical}${' '.repeat(contentWidth)}${box.vertical}${colors.reset}`);
   
-  // Display categories with hover effect
-  promptsData.forEach((category, index) => {
-    const isSelected = index === selectedCategoryIndex;
+  // Calculate visible range with scrolling
+  const totalCategories = promptsData.length;
+  
+  // Adjust scroll offset if selected item is out of view
+  if (selectedCategoryIndex < categoryScrollOffset) {
+    categoryScrollOffset = selectedCategoryIndex;
+  } else if (selectedCategoryIndex >= categoryScrollOffset + visibleItems) {
+    categoryScrollOffset = selectedCategoryIndex - visibleItems + 1;
+  }
+  
+  // Ensure scroll offset is within bounds
+  categoryScrollOffset = Math.max(0, Math.min(categoryScrollOffset, totalCategories - visibleItems));
+  
+  // Show scroll indicator if needed
+  if (categoryScrollOffset > 0) {
+    console.log(`${colors.cyan}${box.vertical}  ${colors.dim}↑ More categories above...${colors.reset}${' '.repeat(contentWidth - 26)}${colors.cyan}${box.vertical}${colors.reset}`);
+    console.log(`${colors.cyan}${box.vertical}${' '.repeat(contentWidth)}${box.vertical}${colors.reset}`);
+  }
+  
+  // Display visible categories with hover effect
+  const endIndex = Math.min(categoryScrollOffset + visibleItems, totalCategories);
+  for (let i = categoryScrollOffset; i < endIndex; i++) {
+    const category = promptsData[i];
+    const isSelected = i === selectedCategoryIndex;
     const prefix = isSelected ? `${colors.bright}${colors.yellow}${colors.bold}▶ ` : '  ';
     const categoryStyle = isSelected ? `${colors.bright}${colors.yellow}${colors.bold}` : colors.reset;
     const paddedName = `${prefix}${categoryStyle}${category.name}`;
@@ -126,18 +152,24 @@ function displayCategories() {
     console.log(`${colors.cyan}${box.vertical}  ${paddedName}${colors.reset}${rightPadding}${colors.cyan}${box.vertical}${colors.reset}`);
     
     // Add spacing between categories
-    if (index < promptsData.length - 1) {
+    if (i < endIndex - 1) {
       console.log(`${colors.cyan}${box.vertical}${' '.repeat(contentWidth)}${box.vertical}${colors.reset}`);
     }
-  });
+  }
+  
+  // Show scroll indicator if needed
+  if (endIndex < totalCategories) {
+    console.log(`${colors.cyan}${box.vertical}${' '.repeat(contentWidth)}${box.vertical}${colors.reset}`);
+    console.log(`${colors.cyan}${box.vertical}  ${colors.dim}↓ More categories below...${colors.reset}${' '.repeat(contentWidth - 27)}${colors.cyan}${box.vertical}${colors.reset}`);
+  }
   
   // Footer with navigation hints
   console.log(`${colors.cyan}${box.middle}${colors.reset}`);
   
   // Calculate padding with ANSI color code length compensation
-  const navText = `${colors.dim} Navigation: ${colors.bright}↑↓${colors.dim} | Select: ${colors.bright}Enter${colors.reset}`;
-  const navVisibleLength = " Navigation: ↑↓ | Select: Enter".length;
-  const navPadding = ' '.repeat(contentWidth - navVisibleLength);
+  const navText = `${colors.dim} Navigation: ${colors.bright}↑↓${colors.dim} | Page: ${colors.bright}PgUp/PgDn${colors.dim} | Jump: ${colors.bright}Home/End${colors.dim} | Select: ${colors.bright}Enter${colors.reset}`;
+  const navVisibleLength = " Navigation: ↑↓ | Page: PgUp/PgDn | Jump: Home/End | Select: Enter".length;
+  const navPadding = ' '.repeat(Math.max(0, contentWidth - navVisibleLength));
   console.log(`${colors.cyan}${box.vertical}${navText}${navPadding}${colors.cyan}${box.vertical}${colors.reset}`);
   
   const exitText = `${colors.dim} Exit: ${colors.bright}q${colors.dim} or ${colors.bright}Ctrl+C${colors.reset}`;
@@ -182,9 +214,30 @@ function displayPrompts() {
   console.log(`${colors.cyan}${box.vertical}${colors.bright}${colors.bold} ${gradientCategoryTitle}${colors.reset}${titleRightPadding}${colors.cyan}${box.vertical}${colors.reset}`);
   console.log(`${colors.cyan}${box.middle}${colors.reset}`);
   
-  // Display prompts with modern card-based styling
-  currentCategory.prompts.forEach((prompt, index) => {
-    const isSelected = index === selectedPromptIndex;
+  // Calculate visible range with scrolling
+  const totalPrompts = currentCategory.prompts.length;
+  
+  // Adjust scroll offset if selected item is out of view
+  if (selectedPromptIndex < promptScrollOffset) {
+    promptScrollOffset = selectedPromptIndex;
+  } else if (selectedPromptIndex >= promptScrollOffset + visibleItems) {
+    promptScrollOffset = selectedPromptIndex - visibleItems + 1;
+  }
+  
+  // Ensure scroll offset is within bounds
+  promptScrollOffset = Math.max(0, Math.min(promptScrollOffset, totalPrompts - visibleItems));
+  
+  // Show scroll indicator if needed
+  if (promptScrollOffset > 0) {
+    console.log(`${colors.cyan}${box.vertical}  ${colors.dim}↑ More prompts above...${colors.reset}${' '.repeat(contentWidth - 24)}${colors.cyan}${box.vertical}${colors.reset}`);
+    console.log(`${colors.cyan}${box.vertical}${' '.repeat(contentWidth)}${box.vertical}${colors.reset}`);
+  }
+  
+  // Display visible prompts with modern card-based styling
+  const endIndex = Math.min(promptScrollOffset + visibleItems, totalPrompts);
+  for (let i = promptScrollOffset; i < endIndex; i++) {
+    const prompt = currentCategory.prompts[i];
+    const isSelected = i === selectedPromptIndex;
     const prefix = isSelected ? `${colors.bright}${colors.yellow}${colors.bold}▶ ` : '  ';
     const promptColor = isSelected ? `${colors.bright}${colors.green}${colors.bold}` : colors.reset;
     
@@ -205,22 +258,28 @@ function displayPrompts() {
     });
     
     // Bottom border of the card with prompt number
-    const promptNumber = `#${index + 1}/${currentCategory.prompts.length}`;
+    const promptNumber = `#${i + 1}/${currentCategory.prompts.length}`;
     console.log(`${colors.cyan}${box.vertical}  ${cardBorder}╰${'─'.repeat(cardWidth - promptNumber.length - 1)}${colors.dim}${promptNumber}${cardBorder}╯${colors.cyan}${box.vertical}${colors.reset}`);
     
     // Add spacing between cards
-    if (index < currentCategory.prompts.length - 1) {
+    if (i < endIndex - 1) {
       console.log(`${colors.cyan}${box.vertical}${' '.repeat(contentWidth)}${box.vertical}${colors.reset}`);
     }
-  });
+  }
+  
+  // Show scroll indicator if needed
+  if (endIndex < totalPrompts) {
+    console.log(`${colors.cyan}${box.vertical}${' '.repeat(contentWidth)}${box.vertical}${colors.reset}`);
+    console.log(`${colors.cyan}${box.vertical}  ${colors.dim}↓ More prompts below...${colors.reset}${' '.repeat(contentWidth - 25)}${colors.cyan}${box.vertical}${colors.reset}`);
+  }
   
   // Footer with navigation hints
   console.log(`${colors.cyan}${box.middle}${colors.reset}`);
   
   // Navigation line
-  const navText = `${colors.dim} Navigation: ${colors.bright}↑↓${colors.dim} | Copy: ${colors.bright}c${colors.dim} | Back: ${colors.bright}←${colors.reset}`;
-  const navVisibleLength = " Navigation: ↑↓ | Copy: c | Back: ←".length;
-  const navPadding = ' '.repeat(contentWidth - navVisibleLength);
+  const navText = `${colors.dim} Navigation: ${colors.bright}↑↓${colors.dim} | Page: ${colors.bright}PgUp/PgDn${colors.dim} | Jump: ${colors.bright}Home/End${colors.dim} | Copy: ${colors.bright}c${colors.dim} | Back: ${colors.bright}←${colors.reset}`;
+  const navVisibleLength = " Navigation: ↑↓ | Page: PgUp/PgDn | Jump: Home/End | Copy: c | Back: ←".length;
+  const navPadding = ' '.repeat(Math.max(0, contentWidth - navVisibleLength));
   console.log(`${colors.cyan}${box.vertical}${navText}${navPadding}${colors.cyan}${box.vertical}${colors.reset}`);
   
   // Exit line
@@ -288,10 +347,28 @@ process.stdin.on('keypress', (str, key) => {
     } else if (key.name === 'down') {
       selectedCategoryIndex = Math.min(promptsData.length - 1, selectedCategoryIndex + 1);
       displayCategories();
+    } else if (key.name === 'pageup') {
+      // Page up - move multiple items at once
+      selectedCategoryIndex = Math.max(0, selectedCategoryIndex - visibleItems);
+      displayCategories();
+    } else if (key.name === 'pagedown') {
+      // Page down - move multiple items at once
+      selectedCategoryIndex = Math.min(promptsData.length - 1, selectedCategoryIndex + visibleItems);
+      displayCategories();
+    } else if (key.name === 'home') {
+      // Jump to first category
+      selectedCategoryIndex = 0;
+      categoryScrollOffset = 0;
+      displayCategories();
+    } else if (key.name === 'end') {
+      // Jump to last category
+      selectedCategoryIndex = promptsData.length - 1;
+      displayCategories();
     } else if (key.name === 'return') {
       // Select category and show prompts
       currentCategory = promptsData[selectedCategoryIndex];
       selectedPromptIndex = 0;
+      promptScrollOffset = 0; // Reset prompt scroll when changing categories
       currentView = 'prompts';
       displayPrompts();
     }
@@ -299,11 +376,40 @@ process.stdin.on('keypress', (str, key) => {
     // Navigate prompts
     if (key.name === 'up') {
       selectedPromptIndex = Math.max(0, selectedPromptIndex - 1);
+      // Ensure the selected item is visible when scrolling up
+      if (selectedPromptIndex < promptScrollOffset) {
+        promptScrollOffset = selectedPromptIndex;
+      }
       displayPrompts();
     } else if (key.name === 'down') {
       selectedPromptIndex = Math.min(currentCategory.prompts.length - 1, selectedPromptIndex + 1);
+      // Ensure the selected item is visible when scrolling down
+      if (selectedPromptIndex >= promptScrollOffset + visibleItems) {
+        promptScrollOffset = selectedPromptIndex - visibleItems + 1;
+      }
       displayPrompts();
-    } else if (key.name === 'backspace') {
+    } else if (key.name === 'pageup') {
+      // Page up - move multiple items at once
+      selectedPromptIndex = Math.max(0, selectedPromptIndex - visibleItems);
+      displayPrompts();
+    } else if (key.name === 'pagedown') {
+      // Page down - move multiple items at once
+      selectedPromptIndex = Math.min(currentCategory.prompts.length - 1, selectedPromptIndex + visibleItems);
+      displayPrompts();
+    } else if (key.name === 'home') {
+      // Jump to first prompt
+      selectedPromptIndex = 0;
+      promptScrollOffset = 0;
+      displayPrompts();
+    } else if (key.name === 'end') {
+      // Jump to last prompt
+      selectedPromptIndex = currentCategory.prompts.length - 1;
+      // Adjust scroll offset to ensure the last item is visible
+      if (currentCategory.prompts.length > visibleItems) {
+        promptScrollOffset = currentCategory.prompts.length - visibleItems;
+      }
+      displayPrompts();
+    } else if (key.name === 'backspace' || key.name === 'left') {
       // Go back to categories
       currentView = 'categories';
       displayCategories();

@@ -10,6 +10,8 @@ A modern, interactive command-line tool for browsing, selecting, and copying AI 
 - 🎨 Beautiful color-coded terminal interface with gradient effects
 - 🌐 Cross-platform support (macOS, Windows, and Linux)
 - ✨ Modern card-based UI for better readability
+- 📜 Efficient scrolling for long prompt lists with visual indicators
+- ⌨️ Enhanced keyboard navigation (Page Up/Down, Home/End)
 - 🔄 Easy to extend with your own prompts
 
 ## Requirements
